@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class OctalTBinary {
+	final static int MAX_LEN = 1000000;
+	final static int MIN_LEN = 100;
+
+	int max_len = MAX_LEN;
+	int min_len = MIN_LEN;
+
+	int octal;
+	int binary;
+	int buf;
+
+	OctalTBinary(int octal) {
+		this.octal = octal;
+	}
+
+	int change() {
+		while (max_len>=1) {
+			buf = octal % max_len;
+			if (buf <= 10) {
+				System.out.println("im buf: "+buf);
+				binary = binary + min_len * (buf / 4) + (buf % 4 / 2) * min_len / 10 + (buf % 4 % 2) * min_len / 100;
+				min_len *= 100;
+				//octal /= 10;
+				System.out.println(binary);
+			}
+			max_len *= 10;
+		}
+		return binary;
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		OctalTBinary otb = new OctalTBinary(sc.nextInt());
+		System.out.println(otb.change());
+	}
+}

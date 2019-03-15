@@ -1,0 +1,13 @@
+package whynot;
+
+import java.util.Scanner;
+
+public class Test {
+	public static void main(String[] args) {
+//		Scanner sc=new Scanner(System.in);
+//		int num=sc.nextInt();
+//		System.out.println(num%8);
+//		System.out.println(num%4%2);
+		System.out.println("e");
+	}
+}

@@ -1,0 +1,6 @@
+
+public class OctalToBinary {
+	String str;
+	int len;
+	String str1[]= {"0", "1", "10"};
+}

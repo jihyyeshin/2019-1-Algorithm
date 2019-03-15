@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class OctalToBinary {
+	String octal;
+	
+	OctalToBinary(String octal) {
+		this.octal=octal;
+	}
+	
+	int change() {
+		int binary;
+		
+		
+		
+		return binary;
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String octal=sc.next();
+		OctalToBinary otb=new OctalToBinary();
+		
+	}
+	
+}

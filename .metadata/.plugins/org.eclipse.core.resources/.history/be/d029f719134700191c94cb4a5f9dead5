@@ -1,7 +1,0 @@
-package ConfAssign;
-
-public class Main {
-	public static void main(string[] args) {
-		Main[] m=new Main[11];
-	}
-}

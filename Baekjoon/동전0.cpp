@@ -21,7 +21,7 @@ int main() {
 	//입력 끝
 	int ans = 0;
 	for (int i = n - 1; i >= 0; i--) {
-		ans += k / a[i];
+		ans += k / a[i];//뒤에서 부터 순회
 		k %= a[i];
 	}
 	cout << ans << '\n';

@@ -1,8 +1,8 @@
 ## C++/STL
 
 1. vector
-<int, int>¸¦ ¾²±â À§ÇØ¼­´Â, pairÀ» »ç¿ëÇØ¾ß ÇÑ´Ù.
-ÀÌ ¶§, utility¸¦ include ÇØ¾ß ÇÔ
+<int, int>ë¥¼ ì“°ê¸° ìœ„í•´ì„œëŠ”, pairì„ ì‚¬ìš©í•´ì•¼ í•œë‹¤.
+ì´ ë•Œ, utilityë¥¼ include í•´ì•¼ í•¨
 
 ```#include <utility>```
 ```
@@ -16,7 +16,7 @@ pv.push_back(make_pair(2, 4));
 
 - queue
 FIFO
-¿ëµµ: BFS, FIFO ±¸Á¶¸¦ °¡Áö´Â ¹®Á¦
+ìš©ë„: BFS, FIFO êµ¬ì¡°ë¥¼ ê°€ì§€ëŠ” ë¬¸ì œ
 
 ```#include <queue>```
 ```
@@ -24,7 +24,7 @@ push, pop, front, back, size, empty
 ```
 - stack
 LIFO
-¿ëµµ: DFS, LIFO ±¸Á¶¸¦ °¡Áö´Â ¹®Á¦
+ìš©ë„: DFS, LIFO êµ¬ì¡°ë¥¼ ê°€ì§€ëŠ” ë¬¸ì œ
 
 ```#include <stack>```
 ```
@@ -34,8 +34,8 @@ size, empty, top, push, pop
 
 - map
 key-value
-¿ëµµ: °Ë»ö ºü¸£°Ô
-¿ä¼Ò Á¢±Ù ½Ã, ¹İº¹ÀÚ(iterator)ÀÌ¿ë ¶Ç´Â ÀÎµ¦½º(key)ÀÌ¿ë
+ìš©ë„: ê²€ìƒ‰ ë¹ ë¥´ê²Œ
+ìš”ì†Œ ì ‘ê·¼ ì‹œ, ë°˜ë³µì(iterator)ì´ìš© ë˜ëŠ” ì¸ë±ìŠ¤(key)ì´ìš©
 
 ```#include <map>```
 ```
@@ -50,22 +50,22 @@ m.insert(make_pair('A', 1);
 m['c'] = 3;
 m.erase('A');
 
-// m ÀüÃ¼¸¦ ¼øÈ¸ÇÏ¸é¼­ key, value Ãâ·Â
+// m ì „ì²´ë¥¼ ìˆœíšŒí•˜ë©´ì„œ key, value ì¶œë ¥
 for(it=m.begin();it!=m.end();it++)
 	cout << it->first << ' ' << it->second << '\n';
 
 if(m.find('b') != m.end())
-	cout << "Á¸Àç\n";
+	cout << "ì¡´ì¬\n";
 else
-	cout << "Á¸ÀçX\n";
+	cout << "ì¡´ì¬X\n";
 ```
 
 - set
-key¸¸ ÀÖ´Â map, key¸¸ ÀÖ±â ¶§¹®¿¡, Áßº¹À» Çã¿ëÄ¡ ¾ÊÀ½
-¿ëµµ: ºü¸¥ °Ë»ö
+keyë§Œ ìˆëŠ” map, keyë§Œ ìˆê¸° ë•Œë¬¸ì—, ì¤‘ë³µì„ í—ˆìš©ì¹˜ ì•ŠìŒ
+ìš©ë„: ë¹ ë¥¸ ê²€ìƒ‰
 
 4. string
-==, !=»ç¿ë °¡´É
+==, !=ì‚¬ìš© ê°€ëŠ¥
 
 ```#include <string>```
 ```
@@ -80,4 +80,42 @@ str.substr(position,, length)
 ```
 sort(s.begin(), s.end());
 reverse(s.begin(), s.end());
+```
+
+#### C++ random
+
+```
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main(){
+	srand((unsigned int)time(NULL));
+	cout << rand() % 20;
+	return 0;
+}
+```
+
+#### C++ Multidimensional Arrays
+
+```
+int array[3][5] = 
+{ { 1, 2 }, // row 0 = 1, 2, 0, 0, 0 
+{ 6, 7, 8 }, // row 1 = 6, 7, 8, 0, 0 
+{ 11, 12, 13, 14 } // row 2 = 11, 12, 13, 14, 0 
+};
+```
+ë™ì  í• ë‹¹
+```
+// í• ë‹¹
+int **arr=new int*[size];
+for (int i=0;i<size;i++){
+	arr[i]=new int[size];
+}
+// í•´ì œ
+for(int i=0;i<size;++i){
+	delete [] arr[i];
+}
+delete [] arr;
 ```

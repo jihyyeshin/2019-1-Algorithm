@@ -26,7 +26,7 @@ string bChange(string a) {// 반시계방향으로 회전
 }
 
 void changeOne(string* t, int changeR, bool* checked) {
-	if (checked[0] == false) {
+	if (checked[0] == 0) {
 		checked[0] = 1;
 		if (changeR == 1) {// 시계방향
 			if (t[0][2] != t[1][6])
@@ -43,7 +43,7 @@ void changeOne(string* t, int changeR, bool* checked) {
 }
 
 void changeTwo(string* t, int changeR, bool* checked) {
-	if (checked[1] == false) {
+	if (checked[1] == 0) {
 		checked[1] = 1;
 		if (changeR == 1) {
 			if (t[0][2] != t[1][6])
@@ -63,7 +63,7 @@ void changeTwo(string* t, int changeR, bool* checked) {
 }
 
 void changeThr(string* t, int changeR, bool* checked) {
-	if (checked[2] == false) {
+	if (checked[2] == 0) {
 		checked[2] = 1;
 
 		if (changeR == 1) {
@@ -84,7 +84,7 @@ void changeThr(string* t, int changeR, bool* checked) {
 }
 
 void changeFr(string* t, int changeR, bool* checked) {
-	if (checked[3] == false) {
+	if (checked[3] == 0) {
 		checked[3] = 1;
 		if (changeR == 1) {// 시계방향
 			if (t[2][2] != t[3][6])
@@ -103,7 +103,7 @@ void changeFr(string* t, int changeR, bool* checked) {
 int main() {
 	string t[4];
 	int result = 0;
-	bool checked[4] = { 0, };//이미 한 번 돌았는지 확인하기 위한 bool
+	bool checked[4] = { 0, };// 이미 한 번 돌았는지 확인하기 위한 bool
 	int n, buf, buf2;
 	// 입력 및 초기화
 	for (int i = 0; i < 4; i++)
@@ -116,7 +116,9 @@ int main() {
 	}
 
 	for (int i = 0; i < n; i++) // 회전
-	{
+	{	// 처음 회전한 톱니바퀴 기준 회전 시작
+		// 회전 시작 후 영향을 준다면, 계속해서 함수에 들어가서 회전시킬 것
+		// 한 번 이상의 회전은 안되기 때문에 checked
 		if (changeNum[i] == 1) {
 			changeOne(t, changeR[i], checked);
 		}
@@ -134,7 +136,7 @@ int main() {
 		for (int j = 0; j < 4; j++)
 			checked[j] = 0;
 	}
-
+	// 각 결과를 더함
 	if (t[0][0] == '1') result += 1;
 	if (t[1][0] == '1') result += 2;
 	if (t[2][0] == '1') result += 4;

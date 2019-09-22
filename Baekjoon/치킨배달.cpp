@@ -52,12 +52,16 @@ int main() {
 		}
 		cout << "\n";
 	}
-	/*for (int i = 0; i < h; i++) {
-		for (int j = 0; j < c; j++) {
-			
-			
+	buf = 0;
+	int count = 0;
+	int result = INT_MAX;
+	for (int i = 0; i < h; i++) {
+		for (int j = i; j < c; j++) {
+			buf += way[i][j];
+			if (result > buf) {
+				result = buf;
+			}
 		}
-	
-	}*/
+	}
 
 }

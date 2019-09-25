@@ -51,12 +51,12 @@ int main() {
 		if (check(small, a)) {
 			break;
 		}
-	} while (next_permutation(small.begin(), small.end());
+	} while (next_permutation(small.begin(), small.end()));
 	do {
 		if (check(big, a)) {
 			break;
 		}
-	} while (prev_permutation(small.begin(), small.end());
+	} while (prev_permutation(small.begin(), small.end()));
 	for (int i = 0; i < big.size(); i++)
 		cout << big[i];
 	cout << '\n';

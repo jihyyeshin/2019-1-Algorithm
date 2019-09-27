@@ -27,7 +27,7 @@ void go(int x, int y, int sum, int cnt) {
 	for (int k = 0; k < 4; k++) // 모든 경우를 방문함
 		go(x + dx[k], y + dy[k], sum + a[x][y], cnt + 1);
 	c[x][y] = false; // BF는 방문한 칸 또 방문함, 하지만 dfs는 또 방문 X
-	// 즉 BF는 원래 상태로 돌려주는 코드가 있음
+	// 즉 BF는 원래 상태로 돌려주는 코드가 있음 !!!!!!!!!!!!!!
 }
 
 int main() {

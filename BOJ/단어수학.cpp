@@ -38,7 +38,7 @@ int main() {
 	letters.erase(unique(letters.begin(), letters.end()), letters.end());
 	int m = letters.size();
 	vector<int> d;
-	for (int  i = 9; i <9-m; i--)
+	for (int i = 9; i <9 - m; i--)
 	{
 		d.push_back(i);
 	}

@@ -1,44 +1,35 @@
 #include <iostream>
-#include <algorithm>
+#include <tuple>
+#include <cstring>
 #include <queue>
-#define next _next
 using namespace std;
-int dist[101];
-int next[101];
-
+int dx[] = {-2,-2,0,0,2,2};
+int dy[] = {-1,1,-2,2,-1,1};
+int dist[200][200];
 int main() {
-	int n, m;
-	cin >> n >> m;
-	for (int i = 1; i <= 100; i++) {
-		next[i] = i;
-		dist[i] = -1;
-	}
-	while (n--) { // 사다리
-		int x, y;
-		cin >> x >> y;
-		next[x] = y;
-	}
-	while (m--) { // 뱀
-		int x, y;
-		cin >> x >> y;
-		next[x] = y;
-	}
-	dist[1] = 0;
-	queue<int> q;
-	q.push(1);
-	// bfs 시작
-	while (!q.empty()) {
-		int x = q.front(); q.pop();
-		for (int i = 1; i <= 6; i++) {
-			int y = x + i;
-			if (y > 100) continue;
-			y = next[y];
-			if (dist[y] == -1) { // 방문하지 않은 경우
-				dist[y] = dist[x] + 1;
-				q.push(y);
-			}
-		}
-	}
-	cout << dist[100] << '\n';
-	return 0;
+    int n;
+    cin >> n;
+    int sx,sy,ex,ey;
+    cin >> sx >> sy >> ex >> ey;
+    memset(dist,-1,sizeof(dist));
+    dist[sx][sy] = 0;
+    queue<pair<int,int>> q;
+    q.push(make_pair(sx,sy));
+    while (!q.empty()) {
+        int x, y;
+        tie(x, y) = q.front(); q.pop();
+        for (int k=0; k<6; k++) {
+            int nx = x+dx[k];
+            int ny = y+dy[k];
+            if (0 <= nx && nx < n && 0 <= ny && ny < n) {
+                if (dist[nx][ny] == -1) {
+                    q.push(make_pair(nx,ny));
+                    dist[nx][ny] = dist[x][y] + 1;
+                }
+            }
+        }
+    }
+    cout << dist[ex][ey] << '\n';
+    return 0;
 }
+
